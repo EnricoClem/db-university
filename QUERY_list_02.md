@@ -30,14 +30,16 @@ SELECT `degrees`.`name` AS `degree_name`, `courses`.`name` AS `course_name`, `te
 SELECT `teachers`.*, `departments`.`name` FROM `teachers` INNER JOIN `course_teacher` ON `teachers`.`id` = `course_teacher`.`teacher_id` INNER JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id` INNER JOIN `degrees` ON `degrees`.`id` = `courses`.`degree_id` INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id` WHERE `departments`.`name` = 'Dipartimento di Matematica' GROUP BY `teachers`.`id`;
 
 
-7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
-per ogni esame, stampando anche il voto massimo. Successivamente,
-filtrare i tentativi con voto minimo 18.
+7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
 
 
 **GROUP BY**
 
 1. Contare quanti iscritti ci sono stati ogni anno
+
+SELECT YEAR(`enrolment_date`) AS `total_enrolment`, COUNT(*) AS count FROM `students` GROUP BY YEAR(`enrolment_date`);
+
+
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 3. Calcolare la media dei voti di ogni appello d'esame
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
