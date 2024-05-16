@@ -41,5 +41,9 @@ SELECT YEAR(`enrolment_date`) AS `total_enrolment`, COUNT(*) AS count FROM `stud
 
 
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT `teachers`.`office_address` AS `same_office`, COUNT(*) AS count FROM `teachers` GROUP BY `teachers`.`office_address`;
+
+
 3. Calcolare la media dei voti di ogni appello d'esame
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
